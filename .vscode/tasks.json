@@ -1,0 +1,71 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "zip",
+            "type": "shell",
+            "windows": {
+                "command": "C:\\Program Files\\7-Zip\\7z.exe"
+            },
+            "args": [
+                "a",
+                "FarmIndicator.zip",
+                "data",
+                "pack.mcmeta",
+            ],
+            "problemMatcher": []
+        },
+        {
+            "label": "copy to server",
+            "type": "shell",
+            "command": "scp",
+            "problemMatcher": [],
+            "args": [
+                "FarmIndicator.zip",
+                "${input:server}:${input:folder}",
+            ],
+            "dependsOn":[
+                "zip"
+            ]
+        },
+        {
+            "label": "ssh",
+            "type": "shell",
+            "command": "ssh",
+            "args": [
+                "${input:server}",
+            ],
+            "problemMatcher": [],
+            "presentation": {
+                "focus": true,
+            },
+            "dependsOn":[
+                "copy to server"
+            ]
+        },
+    ],
+    "inputs": [
+        {
+            "id": "server",
+            "type": "command",
+            "command": "memento.promptString",
+            "args": {
+                "id": "server",
+                "description": "Target IP address",
+                "default": "mc@oracle.lan",
+            }
+        },
+        {
+            "id": "folder",
+            "type": "command",
+            "command": "memento.promptString",
+            "args": {
+                "id": "folder",
+                "description": "Remote Folder",
+                "default": "forge/alexis/world/datapacks/",
+            }
+        },
+    ]
+}

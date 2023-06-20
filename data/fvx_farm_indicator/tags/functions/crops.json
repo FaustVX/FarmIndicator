@@ -1,0 +1,10 @@
+{
+    "values": [
+        "fvx_farm_indicator:crops/age7",
+        "fvx_farm_indicator:crops/age4",
+        "fvx_farm_indicator:crops/age3",
+        "fvx_farm_indicator:crops/block",
+        "fvx_farm_indicator:crops/air",
+        "fvx_farm_indicator:crops/entity"
+    ]
+}

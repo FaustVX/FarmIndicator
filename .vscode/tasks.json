@@ -7,14 +7,8 @@
             "label": "zip",
             "type": "shell",
             "windows": {
-                "command": "C:\\Program Files\\7-Zip\\7z.exe"
+                "command": "${workspaceFolder}/.vscode/zip.ps1"
             },
-            "args": [
-                "a",
-                "FarmIndicator.zip",
-                "data",
-                "pack.mcmeta",
-            ],
             "problemMatcher": []
         },
         {

@@ -22,7 +22,12 @@
             ],
             "dependsOn":[
                 "zip"
-            ]
+            ],
+            "options": {
+                "statusbar": {
+                    "hide": true,
+                }
+            }
         },
         {
             "label": "reload",

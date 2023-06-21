@@ -25,11 +25,12 @@
             ]
         },
         {
-            "label": "ssh",
+            "label": "reload",
             "type": "shell",
             "command": "ssh",
             "args": [
                 "${input:server}",
+                "screen -x mc -X stuff 'reload^M'",
             ],
             "problemMatcher": [],
             "presentation": {
